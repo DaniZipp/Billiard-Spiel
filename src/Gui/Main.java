@@ -8,7 +8,10 @@ import Balls.Ball;
 public class Main {
 
 	public static void main(String[] args) {
-		Window.init("Billiard");
+		
+		
+		Window window = new Window();
+		window.init("Billard");
 		
 		long nsTimerNow;
 		long nsTimerLast = System.nanoTime();
@@ -26,7 +29,7 @@ public class Main {
 			}
 
 			if (shouldRender) {
-				Window.FrameRender();
+				window.FrameRender();
 				shouldRender = false;
 			}
 

@@ -5,24 +5,26 @@ import java.awt.Color;
 
 public class Ball{
 
-	private static int radius = 10;
-	private static int posX;
-	private static int posY;
-	private static int movX;
-	private static int movY;
-	private static int minX = 12;
-	private static int maxX = 794;
-	private static int minY = 40;
-	private static int maxY = 410;
+	private int radius = 10;
+	private int posX;
+	private int posY;
+	private int movX;
+	private int movY;
+	private int minX = 70 - 2*radius;
+	private int maxX = 410;
+	private int minY = 794 - 2*radius;
+	private int maxY = 12;
 	
-	public Ball(int x,int y) {
+	public Ball(int x,int y,int mx,int my) {
 		this.posX = x;
 		this.posY = y;
+		this.movX = mx;
+		this.movY = my;
 
 
 	}
 
-	public static void render(Graphics g) {
+	public void render(Graphics g) {
 		
 		posX = posX + movX;
 		posY = posY + movY;

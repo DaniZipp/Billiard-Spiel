@@ -7,17 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Balls.Ball;
-
 public class Objects {
 	
-	private static JButton button_1;
-	private static JButton button_2;
+	private JButton button_1;
+	private JButton button_2;
 	
-	private static JButton button_3;
-	private static Ball ball_1;
+	private JButton button_3;
 	
-	public static  void init()  {
+	public void init()  {
 	
 	button_1 = new JButton("Restart");
 	button_1.setBackground(new Color (50, 116, 31));
@@ -33,15 +30,12 @@ public class Objects {
 	button_3.setBounds(12, 5, 100, 20);
 	// hier action listener einfügen 
 	
-	ball_1 = new Ball(100,100);
 	}
-	
 
-	public static void showHaupt(JPanel panel){
+	public void showHaupt(JPanel panel){
 		panel.add(button_1);
 		panel.add(button_2);
 		panel.add(button_3);
-		panel.add(ball_1);
 		
 		
 	}
