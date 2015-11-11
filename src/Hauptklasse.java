@@ -4,6 +4,7 @@ public class Hauptklasse {
 		System.out.println();
 		System.out.println("Test");
 		int i = 0;
+		int j = 0;
 
 	}
 
