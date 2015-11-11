@@ -14,7 +14,7 @@ public class Window {
 	
 	
 	Objects objects = new Objects();
-	Ball ball = new Ball(190,70,3,3);
+	Ball ball = new Ball(225.0,70.0,3.5,3.0);
 
 	private JFrame _frame;	//erstellen des Fenster
 	private JPanel _haupt;	//erstellen des Hauptfensters

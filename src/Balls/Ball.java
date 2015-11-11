@@ -6,16 +6,16 @@ import java.awt.Color;
 public class Ball{
 
 	private int radius = 10;
-	private int posX;
-	private int posY;
-	private int movX;
-	private int movY;
-	private int minX = 190;
-	private int maxX = 630 - 2*radius;
-	private int minY = 70;
-	private int maxY = 270  - 2*radius;
+	private double posX;
+	private double posY;
+	private double movX;
+	private double movY;
+	private int minX = 225;//190 // der wert muss bleiben
+	private int maxX = 35 - 2*radius;//630 // dieser ändert nichts
+	private int minY = 0; // wert passt
+	private int maxY = 270  - 2*radius;// wert passt
 	
-	public Ball(int x,int y,int mx,int my) {
+	public Ball(double x,double y,double mx,double my) {
 		this.posX = x;
 		this.posY = y;
 		this.movX = mx;
@@ -41,7 +41,7 @@ public class Ball{
 			movX = -movX;
 		}
 		g.setColor(Color.black);
-		g.fillOval(posX, posY, radius * 2, radius * 2);
+		g.fillOval((int)posX, (int)posY, radius * 2, radius * 2);
 	}
 
 }
