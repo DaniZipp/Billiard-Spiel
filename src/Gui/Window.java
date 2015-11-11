@@ -31,7 +31,7 @@ public class Window {
 				super.paintComponent(g);
 				g.setColor(new Color (50, 116, 31));
 				g.fill3DRect(12, 40, _size.width - 430, _size.height - 90, true);
-				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
+				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);//dfhgdfhjdfjghdfjg
 				
 			} 
 
