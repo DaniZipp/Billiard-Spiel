@@ -10,10 +10,10 @@ public class Ball{
 	private int posY;
 	private int movX;
 	private int movY;
-	private int minX = 70 - 2*radius;
-	private int maxX = 410;
-	private int minY = 794 - 2*radius;
-	private int maxY = 12;
+	private int minX = 190;
+	private int maxX = 630 - 2*radius;
+	private int minY = 70;
+	private int maxY = 270  - 2*radius;
 	
 	public Ball(int x,int y,int mx,int my) {
 		this.posX = x;
@@ -28,13 +28,19 @@ public class Ball{
 		
 		posX = posX + movX;
 		posY = posY + movY;
-		if(posX == minX | posX == maxX){
+		if(posX == minX  ){
 			movY = -movY;
 		}
-		if(posY == minY | posY == maxY){
+		if(posX == maxX ){
+			movY = -movY;
+		}
+		if(posY == minY){
 			movX = -movX;
 		}
-		g.setColor(Color.WHITE);
+		if(posY == maxY){
+			movX = -movX;
+		}
+		g.setColor(Color.black);
 		g.fillOval(posX, posY, radius * 2, radius * 2);
 	}
 
