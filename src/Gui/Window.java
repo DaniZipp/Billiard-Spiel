@@ -41,8 +41,8 @@ public class Window {
 				g.fill3DRect(12, 40, _size.width - 430, _size.height - 90, true);
 				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
 				for(i = 0;i < anzahlKugeln;i++){
-					Balls[i].render(g);
-					Balls[i].getPos();
+					balls[i].render(g);
+					balls[i].getPos();
 				}
 				
 				
