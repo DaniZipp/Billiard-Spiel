@@ -12,8 +12,6 @@ public class Objects {
 	private JButton button_1;
 	private JButton button_2;
 	
-	private JButton button_3;
-	
 	public void init()  {
 	
 	button_1 = new JButton("Restart");
