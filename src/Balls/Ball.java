@@ -17,17 +17,14 @@ public class Ball{
 	private double speed;
 	private float dX;
 	private float dY;
-	private float mass;
 	
 	//Konstruktor
-	public Ball(float x,float y,float mx,float my,float speed,float mass) {
+	public Ball(float x,float y,float mx,float my,float speed) {
 		this.posX = x;
 		this.posY = y;
 		this.movX = mx;
 		this.movY = my;
 		this.speed = speed;
-		this.mass = mass;
-
 
 	}
 	
@@ -56,9 +53,6 @@ public class Ball{
 		return speed;
 	}
 	
-	public float getMass(){
-		return mass;
-	}
 	
 	public void setMovX(float movX){
 		this.movX = movX;
@@ -95,7 +89,7 @@ public class Ball{
 	 * @param ob the other ball
 	 * @return if a collision has happened
 	 */
-	public boolean vectors(Ball ob){	//Kollisionsabfrage
+	public boolean isCollision(Ball ob){	//Kollisionsabfrage
 		dX = posX - ob.getPosX();		
 		dY = posY - ob.getPosY();
 		float vector = dX * dX + dY * dY;
