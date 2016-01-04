@@ -54,6 +54,7 @@ public class Window {
 				control.calc();
 				control.draw(g);
 				
+				
 					
 			} 
 			

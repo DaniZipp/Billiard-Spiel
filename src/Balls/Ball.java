@@ -66,6 +66,7 @@ public class Ball{
 		this.speed = speed;
 	}
 
+	// Übergabeparameter i wird nicht verwendet
 	public void render(int i) {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 		
 		posX = posX + movX * (float)(speed/100);

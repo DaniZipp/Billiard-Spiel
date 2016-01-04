@@ -4,13 +4,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Control {
-
-	int i;								//Variabeln für Schleifen etc.
-	int b;
-	int collBall;
-	int d;
-	 
-	Ball[] balls = new Ball[2];
+			
+	private int collBall;								
+	private int d = 0;
+	private Ball[] balls;
+	public Control(){
+		balls = new Ball[2];
+		create();
+	}
 	
 	public void create(){
 		balls[0] = new Ball(100,100,1,0,1);
@@ -18,14 +19,14 @@ public class Control {
 	}
 	
 	public void calc(){
-		for(i = 0;i < balls.length;i++){				// berechnen der neuen Position
+		for(int i = 0;i < balls.length;i++){				// berechnen der neuen Position
 			balls[i].render(i);
 		}														
 		if(d == 0){										//abfrage ob letztes frame gerendert wurde(um im nächsten frame keine Kollisionsabfrage durchzuführen)
-			for(i = 0;i < balls.length;i++){			//für jeden ball
-				for(b = i +1; b < balls.length;b++){	// für jeden ball außer sich selbst un den schon verglichenen
-					if (balls[i].isCollision(balls[b])){	//kollisionsabfrage mit rückgabewert true oder false
-						balls[i].collision(balls[b]);	//ausrtung der kollisionsdaten
+			for(int i = 0;i < balls.length;i++){			//für jeden ball
+				for(int j = i +1; j < balls.length;j++){	// für jeden ball außer sich selbst un den schon verglichenen
+					if (balls[i].isCollision(balls[j])){	//kollisionsabfrage mit rückgabewert true oder false
+						balls[i].collision(balls[j]);	//ausrtung der kollisionsdaten
 						d++;							//d auf 1 setzen um im nächsten Frame die Kollisionsabfrage zu überspringen
 					}
 				}	
