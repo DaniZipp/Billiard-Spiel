@@ -19,8 +19,9 @@ public class Window {
 	
 	private static Dimension _size = new Dimension(1224,500);	//Größe des Fensters
 	
-	Objects objects = new Objects();							//erstellen des Objekts objects welche alle Buttons enthält
 	Control control = new Control();
+	Objects objects = new Objects(control);							//erstellen des Objekts objects welche alle Buttons enthält
+	
 		
 	public void init(String name){
 		

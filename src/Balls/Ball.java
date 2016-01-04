@@ -6,6 +6,8 @@ public class Ball{
 	
 	//Attribute
 	private float  radius = 10;
+	private final float startX;
+	private final float startY;
 	private float  posX;
 	private float  posY;
 	private float  movX;
@@ -20,6 +22,8 @@ public class Ball{
 	
 	//Konstruktor
 	public Ball(float x,float y,float mx,float my,float speed) {
+		this.startX = x;
+		this.startY = y;
 		this.posX = x;
 		this.posY = y;
 		this.movX = mx;
@@ -162,6 +166,11 @@ public class Ball{
 	}
 	public void draw(Graphics g){	//zeichnen einer Kugel
 		g.fillOval((int)(posX - radius), (int)(posY - radius), (int)radius * 2, (int)radius * 2);
+	}
+	
+	public void resetBall(){
+		posX = startX;
+		posY = startY;
 	}
 
 

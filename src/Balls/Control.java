@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Control {
+	
+	
 			
 	private int collBall;								
 	private int d = 0;
@@ -36,10 +38,17 @@ public class Control {
 		}
 	}
 	
+	public void setZurücksetzten() {
+		for (Ball ball : balls) {
+			ball.resetBall();
+		}
+		
+	}
+	
 	public void draw(Graphics g){
 		g.setColor(Color.white);						//zeichnen der Bälle
 		balls[0].draw(g);
-		g.setColor(Color.green);
+		g.setColor(Color.red);
 		balls[1].draw(g);
 	}
 	
