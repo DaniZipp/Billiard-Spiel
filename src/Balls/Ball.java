@@ -5,30 +5,30 @@ import java.awt.Graphics;
 public class Ball{
 	
 	//Attribute
-	private float  radius = 10;
-	private final float startX;
-	private final float startY;
+	private float  radius;
+	private float startX;
+	private float startY;
 	private float  posX;
 	private float  posY;
 	private float  movX;
 	private float  movY;
-	private float  minX = 12 + radius;
-	private float  maxX = 794 - radius;
-	private float minY = 40 + radius;
-	private float maxY = 450 - radius;
-	private double speed;
+	private float  minX = 0 + radius;
+	private float  maxX = 782 - radius;
+	private float minY = 0 + radius;
+	private float maxY = 410 - radius;
 	private float dX;
 	private float dY;
+	private float mass = 1;
 	
 	//Konstruktor
-	public Ball(float x,float y,float mx,float my,float speed) {
-		this.startX = x;
-		this.startY = y;
+	public Ball(float x,float y,float mx,float my,float radius) {
 		this.posX = x;
 		this.posY = y;
+		this.startX = x;
+		this.startY = y;
 		this.movX = mx;
 		this.movY = my;
-		this.speed = speed;
+		this.radius = radius;
 
 	}
 	
@@ -53,10 +53,6 @@ public class Ball{
 		return radius;
 	}
 	
-	public double getSpeed(){
-		return speed;
-	}
-	
 	
 	public void setMovX(float movX){
 		this.movX = movX;
@@ -66,15 +62,15 @@ public class Ball{
 		this.movY = movY;
 	}
 	
-	public void setSpeed(double speed){
-		this.speed = speed;
-	}
 
 	// Übergabeparameter i wird nicht verwendet
 	public void render(int i) {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 		
-		posX = posX + movX * (float)(speed/100);
-		posY = posY + movY * (float)(speed/100);
+		movX *= 0.99f;
+		movY *= 0.99f;
+		
+		posX = posX + movX;
+		posY = posY + movY;
 		
 		if(posX - radius <= minX  ){
 			movX = -movX;
@@ -110,57 +106,7 @@ public class Ball{
 		
 
 		
-		//für kollision von links
-		if(dX < 0){
-			//für kollision von oben
-			if(dY < 0){
-				ob.setSpeed(speed * (Math.atan(Math.toDegrees(-dY/-dX))/90));
-				speed = speed - ob.getSpeed();
-				
-				movX = -dX;
-				movY = dY;
-				ob.setMovX(-dX);
-				ob.setMovY(-dY);
-			}
-			//für kollision von unten
-			else{
-				ob.setSpeed(speed * (Math.atan(Math.toDegrees(dY/-dX))/90));
-				speed = speed - ob.getSpeed();
-				
-				movX = -dX;
-				movY = -dY;
-				ob.setMovX(-dX);
-				ob.setMovY(-dY);
-			}
 
-			
-		}
-		//für kollision von rechts
-		if(dX > 0){
-			//für kollision von oben
-			if(dY < 0){
-				ob.setSpeed(speed * (Math.atan(Math.toDegrees(-dY/dX))/90));
-				speed = speed - ob.getSpeed();
-				
-				movX = dX;
-				movY = -dY;
-				ob.setMovX(dX);
-				ob.setMovY(dY);
-			}
-			//für kollision von unten
-			else{
-				ob.setSpeed(speed * (Math.atan(Math.toDegrees(dY/dX))/90));
-				speed = speed - ob.getSpeed();
-				
-				movX = dX;
-				movY = dY;
-				ob.setMovX(dX);
-				ob.setMovY(dY);
-			}
-		}
-	
-		
-		//funktioniert nicht :( ideen sind aber am start
 
 		
 	}

@@ -32,14 +32,14 @@ public class Window {
 		_haupt = new JPanel(){
 			private static final long serialVersionUID = 1L;
 			
-			public void paintComponent(Graphics g){
+			/*public void paintComponent(Graphics g){
 				
 				super.paintComponent(g);
 				g.setColor(new Color (50, 116, 31));
 				g.fill3DRect(12, 40, _size.width - 430, this.getWidth() - 90, true);
 				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
 					
-			} 
+			}*/ 
 
 			
 		};
@@ -47,16 +47,12 @@ public class Window {
 		_balls = new JPanel(){
 			private static final long serialVersionUID = 1L;
 			
-
-			
 			public void paintComponent(Graphics g){
 				
 				super.paintComponent(g);
 				control.calc();
 				control.draw(g);
-				
-				
-					
+						
 			} 
 			
 			
