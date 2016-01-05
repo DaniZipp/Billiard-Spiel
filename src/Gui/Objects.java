@@ -17,6 +17,7 @@ public class Objects implements ActionListener{
 	private JButton button_1;
 	private JButton button_2;
 	
+	
 	private Control control = null;
 	
 	public Objects(Control control){
@@ -34,6 +35,9 @@ public class Objects implements ActionListener{
 	button_2.setBackground(new Color (50, 116, 31));
 	button_2.setBounds(824, 5, 80, 20);
 	
+	
+	
+	
 	button_1.addActionListener(this);
 	button_2.addActionListener(this);
 	}
@@ -41,6 +45,7 @@ public class Objects implements ActionListener{
 	public void showHaupt(JPanel panel){
 		panel.add(button_1);
 		panel.add(button_2);
+		
 			
 	}
 

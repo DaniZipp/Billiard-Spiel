@@ -12,7 +12,7 @@ public class Control {
 	}
 	
 	public void create(){
-		balls[0] = new Ball(100,100,1,0,10);
+		balls[0] = new Ball(100,100,4,0,10);
 		balls[1] = new Ball(300,110,0,0,10);
 		balls[2] = new Ball(400,200,0,0,10);
 	}

@@ -32,14 +32,14 @@ public class Window {
 		_haupt = new JPanel(){
 			private static final long serialVersionUID = 1L;
 			
-			/*public void paintComponent(Graphics g){
+			public void paintComponent(Graphics g){
 				
 				super.paintComponent(g);
 				g.setColor(new Color (50, 116, 31));
-				g.fill3DRect(12, 40, _size.width - 430, this.getWidth() - 90, true);
+				
 				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
 					
-			}*/ 
+			}
 
 			
 		};
@@ -66,7 +66,8 @@ public class Window {
 		_haupt.setVisible(true);
 		_haupt.setLayout(null);
 		
-		_balls.setBounds(12,40,782,410);
+		_balls.setBounds(12,40,793,410);
+		_balls.setBackground(new Color (50, 116, 31));
 		_balls.setVisible(true);
 		_balls.setLayout(null);
 	
@@ -76,8 +77,8 @@ public class Window {
 		
 		_frame.setSize(_size);
 		_frame.setResizable(false); 
-		_frame.add(_haupt);
 		_frame.add(_balls);
+		_frame.add(_haupt);
 		_frame.setVisible(true);
 		
 	}
