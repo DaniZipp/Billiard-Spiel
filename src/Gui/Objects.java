@@ -16,9 +16,9 @@ import Balls.Control;
 
 public class Objects implements ActionListener{
 	
-	private JButton restart;
-	private JButton physic;
-	private JButton input;
+	private JButton restart_button;
+	private JButton physic_button;
+	private JButton input_button;
 	private JTextField winkel_textfield;
 	private JTextField power_textfield;
 	private JLabel		power_text;
@@ -35,22 +35,22 @@ public class Objects implements ActionListener{
 	
 	public void init()  {
 	
-	restart = new JButton("Restart");
-	restart.setBackground(new Color (50, 116, 31));
-	restart.setBounds(12, 5, 80, 20);
+	restart_button = new JButton("restart_button");
+	restart_button.setBackground(new Color (50, 116, 31));
+	restart_button.setBounds(12, 5, 80, 20);
 	
-	physic = new JButton("Physik");
-	physic.setBackground(new Color (50, 116, 31));
-	physic.setBounds(824, 5, 80, 20);
+	physic_button = new JButton("Physik");
+	physic_button.setBackground(new Color (50, 116, 31));
+	physic_button.setBounds(824, 5, 80, 20);
 	
-	input = new JButton("Eingabe");
-	input.setBackground(new Color (50, 116, 31));
-	input.setBounds(940, 5, 80, 20);
+	input_button = new JButton("Eingabe");
+	input_button.setBackground(new Color (50, 116, 31));
+	input_button.setBounds(940, 5, 80, 20);
 	
 	
-	restart.addActionListener(this);
-	physic.addActionListener(this);
-	input.addActionListener(this);
+	restart_button.addActionListener(this);
+	physic_button.addActionListener(this);
+	input_button.addActionListener(this);
 	
 	winkel_textfield  = new JTextField();
 	winkel_textfield.setBackground(Color.WHITE);
@@ -73,9 +73,9 @@ public class Objects implements ActionListener{
 	}
 
 	public void showFields(JPanel panel){
-		panel.add(restart);
-		panel.add(physic);
-		panel.add(input);
+		panel.add(restart_button);
+		panel.add(physic_button);
+		panel.add(input_button);
 		panel.add(winkel_textfield);
 		panel.add(power_textfield);
 		panel.add(power_text);
@@ -88,13 +88,13 @@ public class Objects implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == restart) {
+		if(e.getSource() == restart_button) {
 			control.setZurücksetzten();
 		}
-		if(e.getSource() == physic) {
+		if(e.getSource() == physic_button) {
 			//noch zu erledigen
 		}
-		if(e.getSource() == input) {
+		if(e.getSource() == input_button) {
 			try{
 				output_text.setText("");
 				kraft = (Integer.parseInt(winkel_textfield.getText()));
