@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import Balls.Ball;
 import Balls.Control;
+import Physic.Physic;
 
 public class Window {
 	
@@ -21,6 +22,7 @@ public class Window {
 	
 	Control control = new Control();
 	Objects objects = new Objects(control);							//erstellen des Objekts objects welche alle Buttons enthält
+	Physic physic = new Physic();
 	
 		
 	public void init(String name){
@@ -36,8 +38,8 @@ public class Window {
 				
 				super.paintComponent(g);
 				g.setColor(new Color (50, 116, 31));
-				
 				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
+				
 					
 			}
 
@@ -73,7 +75,9 @@ public class Window {
 	
 		
 		objects.init();
-		objects.showHaupt(_haupt);
+		objects.showFields(_haupt);
+		
+		
 		
 		_frame.setSize(_size);
 		_frame.setResizable(false); 

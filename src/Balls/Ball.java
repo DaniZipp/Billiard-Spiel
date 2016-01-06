@@ -66,8 +66,8 @@ public class Ball{
 	// Übergabeparameter i wird nicht verwendet
 	public void render(int i) {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 		
-		movX *= 0.99999f;
-		movY *= 0.99999f;
+		movX *= 0.999f;
+		movY *= 0.999f;
 		
 		posX = posX + movX;
 		posY = posY + movY;
