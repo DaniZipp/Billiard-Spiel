@@ -24,13 +24,21 @@ public class Objects implements ActionListener{
 	private JLabel		power_text;
 	private JLabel		winkel_text;
 	private JLabel		output_text;
-	private int kraft;
-	private int winkel;
+	private float kraft;
+	private float winkel;
 	
 	private Control control = null;
 	
 	public Objects(Control control){
 		this.control = control;
+	}
+	
+	public float getKraft(){
+		return kraft;
+	}
+	
+	public float getWinkel(){
+		return winkel;
 	}
 	
 	public void init()  {

@@ -17,22 +17,22 @@ public class Control {
 	}
 	
 	public void create(){
-		balls[0] = new Ball(100,190,0,0,10);
-		balls[1] = new Ball(400,200,0,0,10);
-		balls[2] = new Ball(400,180,0,0,10);
-		balls[3] = new Ball(382,190,0,0,10);
-		balls[4] = new Ball(420,190,0,0,10);
-		balls[5] = new Ball(420,210,0,0,10);
-		balls[6] = new Ball(420,170,0,0,10);
-		balls[7] = new Ball(440,200,0,0,10);
-		balls[8] = new Ball(440,180,0,0,10);
-		balls[9] = new Ball(440,160,0,0,10);
-		balls[10] = new Ball(440,220,0,0,10);
+		balls[0] = new Ball(100,190,15,0,10,1);
+		balls[1] = new Ball(400,200,0,0,10,1);
+		balls[2] = new Ball(400,180,0,0,10,1);
+		balls[3] = new Ball(379,190,0,0,10,1);
+		balls[4] = new Ball(421,190,0,0,10,1);
+		balls[5] = new Ball(421,210,0,0,10,1);
+		balls[6] = new Ball(421,170,0,0,10,1);
+		balls[7] = new Ball(443,200,0,0,10,1);
+		balls[8] = new Ball(443,180,0,0,10,1);
+		balls[9] = new Ball(443,160,0,0,10,1);
+		balls[10] = new Ball(443,220,0,0,10,1);
 	}
 	
-	public void calc(){
-		for(int i = 0;i < balls.length;i++){				// berechnen der neuen Position
-			balls[i].render(i);
+	public void calc(float kraft,float winkel){
+		for(int i = 0;i < balls.length;i++){			// berechnen der neuen Position
+				balls[i].render();
 		}																		
 			for(int i = 0;i < balls.length;i++){
 				for(int j = i +1; j < balls.length;j++){

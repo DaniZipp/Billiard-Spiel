@@ -13,15 +13,16 @@ public class Ball{
 	private float  movX;
 	private float  movY;
 	private float  minX = 0 + radius;
-	private float  maxX = 782 - radius;
+	private float  maxX = 794 - radius;
 	private float minY = 0 + radius;
 	private float maxY = 410 - radius;
 	private float dX;
 	private float dY;
-	private float mass = 1;
+	private float mass;
+	private float Epsilon = 0.5f;
 	
 	//Konstruktor
-	public Ball(float x,float y,float mx,float my,float radius) {
+	public Ball(float x,float y,float mx,float my,float radius,float mass) {
 		this.posX = x;
 		this.posY = y;
 		this.startX = x;
@@ -29,6 +30,7 @@ public class Ball{
 		this.movX = mx;
 		this.movY = my;
 		this.radius = radius;
+		this.mass = mass;
 
 	}
 	
@@ -53,6 +55,10 @@ public class Ball{
 		return radius;
 	}
 	
+	public float getMass(){
+		return mass;
+	}
+	
 	
 	public void setMovX(float movX){
 		this.movX = movX;
@@ -62,9 +68,16 @@ public class Ball{
 		this.movY = movY;
 	}
 	
+	public void setPosX(float x){
+		this.posX = x;
+	}
+	
+	public void setPosY(float y){
+		this.posY = y;
+	}
+	
 
-	// Übergabeparameter i wird nicht verwendet
-	public void render(int i) {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
+	public void render() {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 		
 		movX *= 0.999f;
 		movY *= 0.999f;
@@ -104,10 +117,32 @@ public class Ball{
 
 	public void collision(Ball ob){ 	//Berechnung der Kollision
 		
-
+		float normalX = posX - ob.getPosX();
+		float normalY = posY - ob.getPosY();
+		float length = (float)Math.sqrt(normalX * normalX + normalY * normalY);
+		normalX /= length;
+		normalY /= length;
 		
+		float overlapplength = radius + ob.getRadius() - length;
+		float masses = mass + ob.getMass();
 
-
+		ob.setPosX(ob.getPosX() +(-normalX * overlapplength) * mass / masses);
+		ob.setPosY(ob.getPosY() +(-normalY * overlapplength) * mass / masses);
+		posX += +normalX * overlapplength * ob.getMass() / masses;
+		posY += +normalY * overlapplength * ob.getMass() / masses;
+		
+		float f = ((-(1 + Epsilon))*((movX - ob.getMovX())*normalX + (movY - ob.getMovY()) * normalY))/(1/ob.getMass() + 1/mass);
+		
+		float oldMovX = movX;
+		float oldMovY = movY;
+		float oldMovXOb = ob.getMovX();
+		float oldMovYOb = ob.getMovY();
+		
+		ob.setMovX(oldMovXOb - f/ob.getMass() * normalX);
+		ob.setMovY(oldMovYOb - f/ob.getMass() * normalY);
+		
+		movX = oldMovX + f/mass * normalX;
+		movY = oldMovY + f/mass * normalY;
 		
 	}
 	public void draw(Graphics g){	//zeichnen einer Kugel
@@ -117,6 +152,8 @@ public class Ball{
 	public void resetBall(){
 		posX = startX;
 		posY = startY;
+		movX = 0;
+		movY = 0;
 	}
 
 

@@ -7,18 +7,17 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Balls.Ball;
 import Balls.Control;
 import Physic.Physic;
 
 public class Window {
 	
-
-	private JFrame _frame;										//erstellen des Fenster
-	private JPanel _haupt;										//erstellen des Panels im Fenster
+	
+	private JFrame _frame;											//erstellen des Fenster
+	private JPanel _haupt;											//erstellen des Panels im Fenster
 	private JPanel _balls;
 	
-	private static Dimension _size = new Dimension(1224,500);	//Größe des Fensters
+	private static Dimension _size = new Dimension(1224,500);		//Größe des Fensters
 	
 	Control control = new Control();
 	Objects objects = new Objects(control);							//erstellen des Objekts objects welche alle Buttons enthält
@@ -39,7 +38,6 @@ public class Window {
 				super.paintComponent(g);
 				g.setColor(new Color (50, 116, 31));
 				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
-				
 					
 			}
 
@@ -52,7 +50,7 @@ public class Window {
 			public void paintComponent(Graphics g){
 				
 				super.paintComponent(g);
-				control.calc();
+				control.calc(objects.getKraft(),objects.getWinkel());
 				control.draw(g);
 						
 			} 
@@ -68,7 +66,7 @@ public class Window {
 		_haupt.setVisible(true);
 		_haupt.setLayout(null);
 		
-		_balls.setBounds(12,40,793,410);
+		_balls.setBounds(12,40,794,410);
 		_balls.setBackground(new Color (50, 116, 31));
 		_balls.setVisible(true);
 		_balls.setLayout(null);
