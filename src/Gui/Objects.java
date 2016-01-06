@@ -35,9 +35,9 @@ public class Objects implements ActionListener{
 	
 	public void init()  {
 	
-	restart_button = new JButton("restart_button");
+	restart_button = new JButton("Neustart");
 	restart_button.setBackground(new Color (50, 116, 31));
-	restart_button.setBounds(12, 5, 80, 20);
+	restart_button.setBounds(12, 5, 100, 20);
 	
 	physic_button = new JButton("Physik");
 	physic_button.setBackground(new Color (50, 116, 31));
