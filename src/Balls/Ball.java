@@ -19,7 +19,7 @@ public class Ball{
 	private float dX;
 	private float dY;
 	private float mass;
-	private float Epsilon = 0.5f;
+	private float Epsilon = 1f;
 	
 	//Konstruktor
 	public Ball(float x,float y,float mx,float my,float radius,float mass) {
@@ -79,8 +79,8 @@ public class Ball{
 
 	public void render() {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 		
-		movX *= 0.999f;
-		movY *= 0.999f;
+		movX *= 0.99f;
+		movY *= 0.99f;
 		
 		posX = posX + movX;
 		posY = posY + movY;
@@ -145,6 +145,8 @@ public class Ball{
 		movY = oldMovY + f/mass * normalY;
 		
 	}
+	
+	
 	public void draw(Graphics g){	//zeichnen einer Kugel
 		g.fillOval((int)(posX - radius), (int)(posY - radius), (int)radius * 2, (int)radius * 2);
 	}

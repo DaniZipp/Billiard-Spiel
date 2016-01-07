@@ -10,29 +10,41 @@ public class Control {
 	
 	
 	private Ball[] balls;
+	private float movement;
 	
 	public Control(){
-		balls = new Ball[11];
+		balls = new Ball[12];
 		create();
+	}
+	public float getMovement(){
+		return movement;
 	}
 	
 	public void create(){
-		balls[0] = new Ball(100,190,15,0,10,1);
-		balls[1] = new Ball(400,200,0,0,10,1);
+		balls[0] = new Ball(100,190,0,0,10,1);
+		balls[1] = new Ball(380,190,0,0,10,1);
 		balls[2] = new Ball(400,180,0,0,10,1);
-		balls[3] = new Ball(379,190,0,0,10,1);
-		balls[4] = new Ball(421,190,0,0,10,1);
-		balls[5] = new Ball(421,210,0,0,10,1);
-		balls[6] = new Ball(421,170,0,0,10,1);
-		balls[7] = new Ball(443,200,0,0,10,1);
-		balls[8] = new Ball(443,180,0,0,10,1);
-		balls[9] = new Ball(443,160,0,0,10,1);
-		balls[10] = new Ball(443,220,0,0,10,1);
+		balls[3] = new Ball(400,200,0,0,10,1);
+		balls[4] = new Ball(420,190,0,0,10,1);
+		balls[5] = new Ball(420,210,0,0,10,1);
+		balls[6] = new Ball(420,170,0,0,10,1);
+		balls[7] = new Ball(440,200,0,0,10,1);
+		balls[8] = new Ball(440,180,0,0,10,1);
+		balls[9] = new Ball(440,160,0,0,10,1);
+		balls[10] = new Ball(440,220,0,0,10,1);
+		balls[11] = new Ball(90,190,0,0,10,1);
 	}
 	
-	public void calc(float kraft,float winkel){
+	public void start(float kraft,float winkel){
+		balls[11].setMovX(kraft);
+		balls[0].collision(balls[11]);
+
+	}
+	
+	public void calc(){
 		for(int i = 0;i < balls.length;i++){			// berechnen der neuen Position
 				balls[i].render();
+				movement += balls[i].getMovX() + balls[i].getMovY();
 		}																		
 			for(int i = 0;i < balls.length;i++){
 				for(int j = i +1; j < balls.length;j++){

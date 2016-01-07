@@ -38,10 +38,10 @@ public class Window {
 				super.paintComponent(g);
 				g.setColor(new Color (50, 116, 31));
 				g.fill3DRect(_size.width - 400, 40, 380, _size.height - 90, true);
-					
-			}
+				g.setColor(Color.BLACK);
 
-			
+
+			}
 		};
 		
 		_balls = new JPanel(){
@@ -50,10 +50,23 @@ public class Window {
 			public void paintComponent(Graphics g){
 				
 				super.paintComponent(g);
-				control.calc(objects.getKraft(),objects.getWinkel());
+				/*int y = 0;
+				for(int i = 0;i < 3;i++){
+					g.fillOval(387*i, y,20,20 );
+				}
+				y = 390;
+				for(int b= 0;b < 3;b++){
+					g.fillOval(387*b, y,20,20 );
+				}*/
+				if(control.getMovement() == 0){
+					if(objects.getKraft() > 0){
+						control.start(objects.getKraft(),objects.getWinkel());
+					}
+				}
+				control.calc();
 				control.draw(g);
+			}
 						
-			} 
 			
 			
 		};
