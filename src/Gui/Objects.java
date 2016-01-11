@@ -1,8 +1,7 @@
 package Gui;
 
 import java.awt.Color;
-
-
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -26,6 +25,8 @@ public class Objects implements ActionListener{
 	private JLabel		output_text;
 	private float kraft;
 	private float winkel;
+	private JLabel physicsWidth_text;
+	private JLabel physicsHeith_text;
 	
 	private Control control = null;
 	
@@ -49,11 +50,11 @@ public class Objects implements ActionListener{
 	
 	physic_button = new JButton("Physik");
 	physic_button.setBackground(new Color (50, 116, 31));
-	physic_button.setBounds(824, 5, 80, 20);
+	physic_button.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 400, 5, 80, 20);
 	
 	input_button = new JButton("Eingabe");
 	input_button.setBackground(new Color (50, 116, 31));
-	input_button.setBounds(940, 5, 80, 20);
+	input_button.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 300, 5, 80, 20);
 	
 	
 	restart_button.addActionListener(this);
@@ -62,23 +63,31 @@ public class Objects implements ActionListener{
 	
 	winkel_textfield  = new JTextField();
 	winkel_textfield.setBackground(Color.WHITE);
-	winkel_textfield.setBounds(850, 180, 150, 30);
+	winkel_textfield.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 180, 150, 30);
 	
 	power_textfield = new JTextField();
 	power_textfield.setBackground(Color.WHITE);
-	power_textfield.setBounds(850, 95, 150, 30);
+	power_textfield.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 95, 150, 30);
 		
-	power_text = new JLabel("Kraft");
-	power_text.setBounds(850, 140, 150, 40);
+	power_text = new JLabel("Kraft in N");
+	power_text.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 140, 150, 40);
 	
 	output_text = new JLabel("");
-	output_text.setBounds(840, 230, 400, 40);
+	output_text.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 230, 400, 40);
 	
-
-	winkel_text = new JLabel("Winkel");
-	winkel_text.setBounds(850, 55, 150, 40);
+	winkel_text = new JLabel("Winkel in °");
+	winkel_text.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 55, 150, 40);
+	
+	physicsWidth_text = new JLabel("Breite: 2,5m");
+	physicsWidth_text.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 150,50,150,40);
+	
+	physicsHeith_text = new JLabel("Höhe: 1,25m");
+	physicsHeith_text.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 150,70,150,40);
 	
 	}
+	
+	
+	
 
 	public void showFields(JPanel panel){
 		panel.add(restart_button);
@@ -89,6 +98,8 @@ public class Objects implements ActionListener{
 		panel.add(power_text);
 		panel.add(winkel_text);
 		panel.add(output_text);
+		panel.add(physicsHeith_text);
+		panel.add(physicsWidth_text);
 		
 			
 	}

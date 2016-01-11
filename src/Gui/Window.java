@@ -3,6 +3,7 @@ package Gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,7 +18,7 @@ public class Window {
 	private JPanel _haupt;											//erstellen des Panels im Fenster
 	private JPanel _balls;
 	
-	private static Dimension _size = new Dimension(1224,500);		//Größe des Fensters
+	private static Dimension _size = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width,600);		//Größe des Fensters
 	
 	Control control = new Control();
 	Objects objects = new Objects(control);							//erstellen des Objekts objects welche alle Buttons enthält
@@ -79,7 +80,7 @@ public class Window {
 		_haupt.setVisible(true);
 		_haupt.setLayout(null);
 		
-		_balls.setBounds(12,40,794,410);
+		_balls.setBounds(45,70,794,410);
 		_balls.setBackground(new Color (50, 116, 31));
 		_balls.setVisible(true);
 		_balls.setLayout(null);

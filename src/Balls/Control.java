@@ -42,6 +42,7 @@ public class Control {
 	}
 	
 	public void calc(){
+		movement = 0;
 		for(int i = 0;i < balls.length;i++){			// berechnen der neuen Position
 				balls[i].render();
 				movement += balls[i].getMovX() + balls[i].getMovY();
@@ -54,7 +55,7 @@ public class Control {
 						}
 					}
 				}	
-			}	
+			}
 	}
 	
 	public void setZurücksetzten() {
