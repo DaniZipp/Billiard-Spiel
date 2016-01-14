@@ -79,8 +79,24 @@ public class Ball{
 
 	public void render() {		//berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 		
-		movX *= 0.996f;
-		movY *= 0.996f;
+		
+		if(movX > 0 && movY > 0){
+		float friction = (mass * 9.81f * 0.2f) / (radius/410 * 1.25f);
+		float slow = friction / mass;
+		
+		float vX = (movX/794 * 2.5f * (1.0f/60)) * -1;
+		float vY = (movY/410 * 1.25f * (1.0f/60)) * -1;
+		
+		float vNewX = slow * (1.0f/60) + vX;
+		float vNewY = slow * (1.0f/60) + vY;
+		
+		movX = 794/vNewX * 2.5f * (1.0f/60);
+		movY = 410/vNewY * 1.25f * (1.0f/60);
+		
+		System.out.println(vNewX);
+		System.out.println(vNewY);
+		
+		}
 		
 		posX = posX + movX;
 		posY = posY + movY;
