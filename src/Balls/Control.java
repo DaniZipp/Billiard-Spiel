@@ -23,15 +23,15 @@ public class Control {
 	public void create(){
 		balls[0] = new Ball(100,190,0,0,8.72f,0.17f);
 		balls[1] = new Ball(380,190,0,0,8.72f,0.17f);
-		balls[2] = new Ball(400,180,0,0,8.72f,0.17f);
-		balls[3] = new Ball(400,200,0,0,8.72f,0.17f);
-		balls[4] = new Ball(420,190,0,0,8.72f,0.17f);
-		balls[5] = new Ball(420,210,0,0,8.72f,0.17f);
-		balls[6] = new Ball(420,170,0,0,8.72f,0.17f);
-		balls[7] = new Ball(440,200,0,0,8.72f,0.17f);
-		balls[8] = new Ball(440,180,0,0,8.72f,0.17f);
-		balls[9] = new Ball(440,160,0,0,8.72f,0.17f);
-		balls[10] = new Ball(440,220,0,0,8.72f,0.17f);
+		balls[2] = new Ball(380+9*2,190+9,0,0,8.72f,0.17f);
+		balls[3] = new Ball(380+9*2,190-9,0,0,8.72f,0.17f);
+		balls[4] = new Ball(380+9*4,190,0,0,8.72f,0.17f);
+		balls[5] = new Ball(380+9*4,190+9*2,0,0,8.72f,0.17f);
+		balls[6] = new Ball(380+9*4,190-9*2,0,0,8.72f,0.17f);
+		balls[7] = new Ball(380+9*6,190+9,0,0,8.72f,0.17f);
+		balls[8] = new Ball(380+9*6,190-9,0,0,8.72f,0.17f);
+		balls[9] = new Ball(380+9*6,190+9*2,0,0,8.72f,0.17f);
+		balls[10] = new Ball(380+9*6,190-9*2,0,0,8.72f,0.17f);
 		balls[11] = new Ball(90,190,0,0,8.72f,0.17f);
 	}
 	
