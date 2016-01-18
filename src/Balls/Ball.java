@@ -75,63 +75,46 @@ public class Ball {
 		this.posY = y;
 	}
 
-	public void render() { 	// berechnung der neuen X- und Y-Werte und
-							// Bandenkollisionsabfrage
+	public void render() { 											// berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 
-		if (movX != 0 || movY != 0) {
+		float friction = mass * 9.81f * (0.000007f / 0.0572f);	 	// Rollreibung = natürliche Kraft * Rollreibungskoeffizient (Fn = Fg)
+		float slow = friction / mass; 								// F = m * a -> a = F/m
+		float mX = movX;
+		float mY = movY;
 
-			float friction = mass * 9.81f * (0.000007f/0.0572f); 			//Rollreibung = natürliche Kraft * Rollreibungskoeffizient (Fn = Fg)
-			float slow = friction / mass;									//F = m * a -> a = F/m
-			float mX = movX;
-			float mY = movY;
-			
-			
-			if(movX < 0){
-				mX *= -1;
-			}
-			if(movY < 0){
-				mY *= -1;
-			}
-			
-			float vX = mX / 794 * 2.5f;
-			float vY = mY / 410 * 1.25f;
-
-			float t = 1.0f / 60;
-			float vSlow = slow * t;
-
-			float sX = 0;
-			float sY = 0;
-			
-			if(movX != 0){
-				sX = vSlow / vX;
-			}
-			if(movY != 0){
-				sY = vSlow / vY;
-			}
-			
-			
-			sX = 1 - sX;
-			sY = 1 - sY;
-
-			
-			System.out.println(vX);
-			System.out.println(slow);
-			System.out.println(t);
-			System.out.println(vSlow);
-			System.out.println(sX);
-
-
-			movX = movX * sX;
-			movY = movY * sY;
-
-			
-
+		if (movX < 0) { //fallsGeschwindigkeit negativ zu positiv konvertieren
+			mX *= -1;
 		}
-		
+		if (movY < 0) {
+			mY *= -1;
+		}
+
+		float vX = mX / 794 * 2.5f; 	//alteGeschwindigkeitX
+		float vY = mY / 410 * 1.25f;	//alte GeschwindigkeitY
+
+		float t = 1.0f / 60; 			//Zeit:(1/60)Sekunde
+		float vSlow = slow * t;			//Verlangsamung in einer 60stel Sekunde
+
+		float sX = 0;
+		float sY = 0;
+
+		if (movX != 0) {
+			sX = vSlow / vX;			//Verhältnis Verlangsamung zu Geschwindigkeit für X
+		}
+		if (movY != 0) {
+			sY = vSlow / vY;			//Verhältnis Verlangsamung zu Geschwindigkeit für Y
+		}
+
+		sX = 1 - sX;					//Berechnung des Faktors für die neue Geschwindigkeit für X
+		sY = 1 - sY;					//Berechnung des Faktors für die neue Geschwindigkeit für Y
+
+		movX = movX * sX;				//Berechnung der neuen Geschwindigkeit für X
+		movY = movY * sY;				//Berechnung der neuen Geschwindigkeit für Y
+
 		posX = posX + movX;
 		posY = posY + movY;
 
-		if (posX - radius <= minX) { //Reflexion
+		if (posX - radius <= minX) { // Reflexion
 			movX = -movX;
 		}
 		if (posX + radius >= maxX) {
