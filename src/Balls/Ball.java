@@ -74,6 +74,7 @@ public class Ball {
 	public void setPosY(float y) {
 		this.posY = y;
 	}
+	
 
 	public void render() { 											// berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
 
@@ -82,7 +83,7 @@ public class Ball {
 		float mX = movX;
 		float mY = movY;
 
-		if (movX < 0) { //fallsGeschwindigkeit negativ zu positiv konvertieren
+		if (movX < 0) { 				//fallsGeschwindigkeit negativ zu positiv konvertieren
 			mX *= -1;
 		}
 		if (movY < 0) {
@@ -114,7 +115,7 @@ public class Ball {
 		posX = posX + movX;
 		posY = posY + movY;
 
-		if (posX - radius <= minX) { // Reflexion
+		if (posX - radius <= minX) { 	// Reflexion
 			movX = -movX;
 		}
 		if (posX + radius >= maxX) {

@@ -18,6 +18,7 @@ public class Objects implements ActionListener{
 	private JButton restart_button;
 	private JButton physic_button;
 	private JButton input_button;
+	private JButton stoﬂ_button;
 	private JTextField winkel_textfield;
 	private JTextField power_textfield;
 	private JLabel		power_text;
@@ -27,6 +28,7 @@ public class Objects implements ActionListener{
 	private float winkel;
 	private JLabel physicsWidth_text;
 	private JLabel physicsHeith_text;
+	private boolean neuerStoﬂ;
 	
 	private Control control = null;
 	
@@ -40,6 +42,14 @@ public class Objects implements ActionListener{
 	
 	public float getWinkel(){
 		return winkel;
+	}
+	
+	public boolean getStoﬂ(){
+		return neuerStoﬂ;
+	}
+	
+	public void setStoﬂ(boolean stoﬂ){
+		this.neuerStoﬂ = stoﬂ;
 	}
 	
 	public void init()  {
@@ -56,10 +66,14 @@ public class Objects implements ActionListener{
 	input_button.setBackground(new Color (50, 116, 31));
 	input_button.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 300, 5, 80, 20);
 	
+	stoﬂ_button = new JButton("neuer Stoﬂ");
+	stoﬂ_button.setBackground(new Color (50, 116, 31));
+	stoﬂ_button.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 200, 5, 100, 20);
 	
 	restart_button.addActionListener(this);
 	physic_button.addActionListener(this);
 	input_button.addActionListener(this);
+	stoﬂ_button.addActionListener(this);
 	
 	winkel_textfield  = new JTextField();
 	winkel_textfield.setBackground(Color.WHITE);
@@ -100,6 +114,7 @@ public class Objects implements ActionListener{
 		panel.add(output_text);
 		panel.add(physicsHeith_text);
 		panel.add(physicsWidth_text);
+		panel.add(stoﬂ_button);
 		
 			
 	}
@@ -114,15 +129,21 @@ public class Objects implements ActionListener{
 			//noch zu erledigen
 		}
 		if(e.getSource() == input_button) {
-			try{
-				output_text.setText("");
-				kraft = (Integer.parseInt(winkel_textfield.getText()));
-				winkel = (Integer.parseInt(power_textfield.getText()));
-			}catch(Exception x){
-				output_text.setText("Geben Sie eine Zahl ein oder f¸llen Sie bitte beider Felder aus !");
-				System.out.println(x.getMessage());
+			if(neuerStoﬂ == true){
+				try{
+					output_text.setText("");
+					kraft = (Integer.parseInt(winkel_textfield.getText()));
+					winkel = (Integer.parseInt(power_textfield.getText()));
+				}catch(Exception x){
+					output_text.setText("Geben Sie eine Zahl ein oder f¸llen Sie bitte beider Felder aus !");
+					System.out.println(x.getMessage());
+				}
 			}
 			
+		}
+		if(e.getSource() == stoﬂ_button){
+			control.stop();
+			neuerStoﬂ = true;
 		}
 
 	}

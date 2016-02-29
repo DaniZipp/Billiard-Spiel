@@ -59,9 +59,10 @@ public class Window {
 				for(int b= 0;b < 3;b++){
 					g.fillOval(387*b, y,20,20 );
 				}*/
-				if(control.getMovement() == 0){
+				if(objects.getStoﬂ()==true){
 					if(objects.getKraft() > 0){
-						control.start(objects.getKraft(),objects.getWinkel());
+						control.stoﬂ(objects.getKraft(),objects.getWinkel());
+						objects.setStoﬂ(false);
 					}
 				}
 				control.calc();

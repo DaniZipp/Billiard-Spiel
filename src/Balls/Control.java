@@ -32,12 +32,22 @@ public class Control {
 		balls[8] = new Ball(380+9*6,190-9,0,0,8.72f,0.17f);
 		balls[9] = new Ball(380+9*6,190+9*2,0,0,8.72f,0.17f);
 		balls[10] = new Ball(380+9*6,190-9*2,0,0,8.72f,0.17f);
-		balls[11] = new Ball(90,190,0,0,8.72f,0.17f);
+		balls[11] = new Ball(0,0,0,0,8.72f,0.17f);
 	}
 	
-	public void start(float kraft,float winkel){
+	public void stoﬂ(float kraft,float winkel){
+		if(winkel <= 90 ||winkel >= 270){
+			balls[11].setPosX(balls[0].getPosX() - (float)Math.sin(balls[0].getRadius()*2));
+		}else{
+			balls[11].setPosX(balls[0].getPosX() + (float)Math.sin(balls[0].getRadius()*2));
+		}
+		if(winkel <= 180){
+			balls[11].setPosY(balls[0].getPosY() - (float)Math.cos(balls[0].getRadius()*2));
+		}else{
+			balls[11].setPosY(balls[0].getPosY() + (float)Math.cos(balls[0].getRadius()*2));
+		}
 		balls[11].setMovX(kraft);
-		balls[0].collision(balls[11]);
+		
 
 	}
 	
@@ -63,6 +73,13 @@ public class Control {
 			ball.resetBall();
 		}
 		
+	}
+	
+	public void stop(){
+		for (Ball ball : balls) {
+			ball.setMovX(0);
+			ball.setMovY(0);
+		}
 	}
 	
 	public void draw(Graphics g){
