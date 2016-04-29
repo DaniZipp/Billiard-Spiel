@@ -83,7 +83,7 @@ public class Objects implements ActionListener{
 	power_textfield.setBackground(Color.WHITE);
 	power_textfield.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 95, 150, 30);
 		
-	power_text = new JLabel("Kraft in N");
+	power_text = new JLabel("Geschwindigkeit in m/s");
 	power_text.setBounds(Toolkit.getDefaultToolkit().getScreenSize().width - 375, 140, 150, 40);
 	
 	output_text = new JLabel("");

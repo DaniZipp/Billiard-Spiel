@@ -137,6 +137,7 @@ public class Ball {
 	 * @return if a collision has happened
 	 */
 	public boolean isCollision(Ball ob) { // Kollisionsabfrage
+		
 		dX = posX - ob.getPosX();
 		dY = posY - ob.getPosY();
 		float vector = dX * dX + dY * dY;
@@ -146,6 +147,21 @@ public class Ball {
 		} else {
 			return false;
 		}
+	}
+	
+	public boolean isQueueCollision(float x,float y){
+		
+		float dqx = x - posX ;
+		float dqy = y - posY ;
+		float vector = dqx * dqx + dqy * dqy;
+		float hypoq = radius * radius;
+		
+		if(vector <= hypoq){
+			return true;
+		}else{
+			return false;
+		}
+			
 	}
 
 	public void collision(Ball ob) { // Berechnung der Kollision
