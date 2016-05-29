@@ -12,10 +12,10 @@ public class Ball {
 	private float posY;
 	private float movX;
 	private float movY;
-	private float minX = 0 + radius;
-	private float maxX = 794 - radius;
-	private float minY = 0 + radius;
-	private float maxY = 410 - radius;
+	private float minX = 10 + radius;
+	private float maxX = 804 - radius;
+	private float minY = 10 + radius;
+	private float maxY = 420 - radius;
 	private float dX;
 	private float dY;
 	private float mass;
@@ -77,8 +77,9 @@ public class Ball {
 	
 
 	public void render() { 											// berechnung der neuen X- und Y-Werte und Bandenkollisionsabfrage
+		
 
-		float friction = mass * 9.81f * (0.000007f / 0.0572f);	 	// Rollreibung = natürliche Kraft * Rollreibungskoeffizient (Fn = Fg)
+		/*float friction = mass * 9.81f * (0.000007f / 0.0572f);	 	// Rollreibung = natürliche Kraft * Rollreibungskoeffizient (Fn = Fg)
 		float slow = friction / mass; 								// F = m * a -> a = F/m
 		float mX = movX;
 		float mY = movY;
@@ -110,22 +111,58 @@ public class Ball {
 		sY = 1 - sY;					//Berechnung des Faktors für die neue Geschwindigkeit für Y
 
 		movX = movX * sX;				//Berechnung der neuen Geschwindigkeit für X
-		movY = movY * sY;				//Berechnung der neuen Geschwindigkeit für Y
-
+		movY = movY * sY;*/				//Berechnung der neuen Geschwindigkeit für Y
+			
+		movX = movX * 0.9965f;
+		movY = movY * 0.9965f;
+		
 		posX = posX + movX;
 		posY = posY + movY;
 
 		if (posX - radius <= minX) { 	// Reflexion
 			movX = -movX;
+			movX = movX*0.9f;
+			movY = movY*0.9f;
 		}
 		if (posX + radius >= maxX) {
 			movX = -movX;
+			movX = movX*0.9f;
+			movY = movY*0.9f;
 		}
 		if (posY - radius <= minY) {
 			movY = -movY;
+			movX = movX*0.9f;
+			movY = movY*0.9f;
 		}
 		if (posY + radius >= maxY) {
 			movY = -movY;
+			movX = movX*0.9f;
+			movY = movY*0.9f;
+		}
+		
+	}
+	
+	public boolean tooSlow(){
+		
+		float NmovX = movX;
+		float NmovY = movY;
+		
+		if(NmovX < 0){
+			NmovX = NmovX * -1;
+		}
+		if(NmovY < 0){
+			NmovY = NmovY * -1;
+		}
+		
+		
+		float mov = NmovX+ NmovY;
+		
+		
+				
+		if(mov < 0.2f){
+			return true;
+		}else{
+			return false;
 		}
 	}
 
@@ -193,6 +230,12 @@ public class Ball {
 
 		movX = oldMovX + f / mass * normalX;
 		movY = oldMovY + f / mass * normalY;
+		
+		movX = movX*0.999f;
+		movY = movY*0.999f;
+		
+		ob.setMovX(ob.getMovX()*0.95f);
+		ob.setMovY(ob.getMovY()*0.95f);
 
 	}
 

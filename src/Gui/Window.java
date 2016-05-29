@@ -51,18 +51,13 @@ public class Window {
 			public void paintComponent(Graphics g){
 				
 				super.paintComponent(g);
-				/*int y = 0;
-				for(int i = 0;i < 3;i++){
-					g.fillOval(387*i, y,20,20 );
-				}
-				y = 390;
-				for(int b= 0;b < 3;b++){
-					g.fillOval(387*b, y,20,20 );
-				}*/
-				if(objects.getStoﬂ()==true){
+				g.setColor(new Color (50, 116, 31));
+				g.fillRect(10,10,794,410);
+				if(objects.getStoﬂEingabe()==true && control.getMovement() == 0){
 					if(objects.getKraft() > 0){
 						control.stoﬂ(objects.getKraft(),objects.getWinkel());
 						objects.setStoﬂ(false);
+						objects.setStoﬂEingabe(false);
 					}
 				}
 				control.calc();
@@ -81,8 +76,8 @@ public class Window {
 		_haupt.setVisible(true);
 		_haupt.setLayout(null);
 		
-		_balls.setBounds(45,70,794,410);
-		_balls.setBackground(new Color (50, 116, 31));
+		_balls.setBounds(35,60,814,430);
+		_balls.setBackground(new Color(128,64,0));
 		_balls.setVisible(true);
 		_balls.setLayout(null);
 	

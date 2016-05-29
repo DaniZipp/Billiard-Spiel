@@ -29,6 +29,7 @@ public class Objects implements ActionListener{
 	private JLabel physicsWidth_text;
 	private JLabel physicsHeith_text;
 	private boolean neuerStoﬂ;
+	private boolean stoﬂEingabe;
 	
 	private Control control = null;
 	
@@ -48,8 +49,16 @@ public class Objects implements ActionListener{
 		return neuerStoﬂ;
 	}
 	
+	public boolean getStoﬂEingabe(){
+		return stoﬂEingabe;
+	}
+	
 	public void setStoﬂ(boolean stoﬂ){
 		this.neuerStoﬂ = stoﬂ;
+	}
+	
+	public void setStoﬂEingabe(boolean stoﬂ){
+		this.stoﬂEingabe = stoﬂ;
 	}
 	
 	public void init()  {
@@ -131,6 +140,7 @@ public class Objects implements ActionListener{
 		if(e.getSource() == input_button) {
 			if(neuerStoﬂ == true){
 				try{
+					stoﬂEingabe = true;
 					output_text.setText("");
 					kraft = (Integer.parseInt(winkel_textfield.getText()));
 					winkel = (Integer.parseInt(power_textfield.getText()));
@@ -142,7 +152,6 @@ public class Objects implements ActionListener{
 			
 		}
 		if(e.getSource() == stoﬂ_button){
-			control.stop();
 			neuerStoﬂ = true;
 		}
 
